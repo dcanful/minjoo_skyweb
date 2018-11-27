@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> 인간이 영원히 꿈을 꾸는 공간, 하늘 </title>
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/default.css" />
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/ui.js"></script>
+</head>
+<body>
+
+	<!-- s: header -->
+	<header id="header_container">
+		<h1 class="logo"><a href="index.html"><img src="images/img_logo01.png" width="54" height="53" alt="FLY -" /></a></h1>
+		<a href="#none" class="btnMenu"><img src="images/btn_menu01.png" width="60" height="60" alt="메뉴 열기" /></a>
+		<nav class="gnb_wrap">
+			<ul>
+				<li><a href="index.html"><img src="images/txt_menu01.png" width="280" height="94" alt="HOME" /></a></li>
+				<li><a href="history.html"><img src="images/txt_menu02.png" width="400" height="94" alt="HISTORY" /></a></li>
+				<li><a href="principle.html"><img src="images/txt_menu03.png" width="490" height="94" alt="PRINCIPLE" /></a></li>
+				<li><a href="point.html"><img src="images/txt_menu04.png" width="280" height="94" alt="POINT" /></a></li>
+				<li><a href="#none" onclick="sky.notFound();"><img src="images/txt_menu05.png" width="810" height="94" alt="TO BE CONTINUED" /></a></li>
+			</ul>
+			<a href="#none" class="btnClose"><img src="images/btn_close01.png" width="35" height="36" alt="닫기" /></a>
+		</nav>
+	</header>
+	<!-- e: header -->
+
+	<!-- s: body -->
+	<section id="body_container" class="history_page">
+
+
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<script src="js/swiper.min.js"></script>
+				
+		<!-- s: content -->
+		<section class="content_section">
+			<h2 class="title"><img src="images/history/tit_history01.png" width="150" height="40" alt="HISTORY" /></h2>
+			<!-- s: slider -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<!-- s: section -->
+					<div class="swiper-slide" id="section01">
+						<div class="cont"></div>
+					</div>
+					<!-- e: section -->
+					<!-- s: section -->
+					<div class="swiper-slide" id="section02">
+						<div class="cont"></div>
+					</div>
+					<!-- e: section -->
+					<!-- s: section -->
+					<div class="swiper-slide" id="section03">
+						<div class="layer bg"><img src="images/history/img_content03.png" /></div>
+						<div class="layer tit"><img src="images/history/layer_content03_01.png" /></div>
+						<div class="layer moon"><img src="images/history/layer_content03_02.png" /></div>
+						<div class="layer ast"><img src="images/history/layer_content03_03.png" /></div>
+					</div>
+					<!-- e: section -->
+				</div>
+			</div>
+			<!-- e: slider -->
+			<script type="text/javascript">
+				$(function(){
+					var historySwiper = new Swiper ('.content_section .swiper-container', {
+						mousewheel: true,
+						keyboard: true,
+						speed: 800,
+						on: {
+							init: function(){
+								induceScrl(this.realIndex);
+							},
+							slideChange: function(){
+								induceScrl(this.realIndex);
+							}
+						}
+					});
+				})
+				function induceScrl(idx){
+					console.log(idx);
+					var $induceScrl = $(".induce_wrap");
+					var $prev = $induceScrl.find(".prev");
+					var $next = $induceScrl.find(".next");
+					switch(idx) {
+						case 0 : pageFirst(); break;
+						case 2 : pageLast(); break;
+						default : pageMiddle();
+					}
+					function pageFirst(){
+						$prev.css({visibility:"hidden"});
+						$next.css({visibility:"visible"});
+						whosMotion(false);
+						$induceScrl.removeClass("white");
+					}
+					function pageLast(){
+						$prev.css({visibility:"visible"});
+						$next.css({visibility:"hidden"});
+						whosMotion();
+						$induceScrl.addClass("white");
+					}
+					function pageMiddle(){
+						$prev.css({visibility:"visible"});
+						$next.css({visibility:"visible"});
+						whosMotion(false);
+						$induceScrl.removeClass("white");
+					}
+					function whosMotion(flag){
+						var $layerAll = $("#section03 .layer");
+						var $layerAst = $("#section03 .layer.ast img");
+						if( flag==undefined || flag ){
+							$layerAll.css({opacity:0});
+							sky.motion( $layerAll, "slideInRight" );
+							sky.motion( $layerAst, "floatsAst" );
+						} else {
+							$layerAll.removeClass("slideInRight");
+							$layerAst.removeClass("floatsAst");
+						}
+					}
+				}
+			</script>
+			<!-- s: 스크롤유도 -->
+			<div class="induce_wrap">
+				<span class="prev animate floatsLeft">이전 페이지</span>
+				<span class="text">Scroll</span>
+				<span class="next animate floatsRight">이전 페이지</span>
+			</div>
+			<!-- e: 스크롤유도 -->
+		</section>
+		<!-- e: content -->
+
+	</section>
+	<!-- e: body -->
+
+</body>
+</html>

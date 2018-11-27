@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> 인간이 영원히 꿈을 꾸는 공간, 하늘 </title>
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/default.css" />
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/ui.js"></script>
+</head>
+<body>
+
+	<!-- s: header -->
+	<header id="header_container">
+		<h1 class="logo"><a href="index.html"><img src="images/img_logo01.png" width="54" height="53" alt="FLY -" /></a></h1>
+		<a href="#none" class="btnMenu"><img src="images/btn_menu01.png" width="60" height="60" alt="메뉴 열기" /></a>
+		<nav class="gnb_wrap">
+			<ul>
+				<li><a href="index.html"><img src="images/txt_menu01.png" width="280" height="94" alt="HOME" /></a></li>
+				<li><a href="history.html"><img src="images/txt_menu02.png" width="400" height="94" alt="HISTORY" /></a></li>
+				<li><a href="principle.html"><img src="images/txt_menu03.png" width="490" height="94" alt="PRINCIPLE" /></a></li>
+				<li><a href="point.html"><img src="images/txt_menu04.png" width="280" height="94" alt="POINT" /></a></li>
+				<li><a href="tobecontinued.html"><img src="images/txt_menu05.png" width="810" height="94" alt="TO BE CONTINUED" /></a></li>
+			</ul>
+			<a href="#none" class="btnClose"><img src="images/btn_close01.png" width="35" height="36" alt="닫기" /></a>
+		</nav>
+	</header>
+	<!-- e: header -->
+
+	<!-- s: body -->
+	<section id="body_container" class="main_page">
+
+
+		<link rel="stylesheet" href="css/jquery.fullpage.css" />
+		<script src="js/jquery.fullpage.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// one page
+				$('#fullpage').fullpage({
+					sectionSelector: '.content_section',
+					onLeave: function(index, nextIdx, direction){
+						/*var $layerBg02 = $(".content02 .layer.bg");
+
+						$layerBg02.css("opacity",0);
+
+						switch(nextIdx) {
+							case 2 : section02(); break;
+						}
+
+						function section02(){
+							sky.motion($layerBg02, "fadeInRight");
+						}*/
+					}
+				});
+			});
+		</script>
+
+		<div id="fullpage" style="height:100%; box-sizing:border-box;">
+			<!-- s: content -->
+			<section class="content_section content01">
+				<div class="inner">
+					<div class="line"></div>
+					<div class="layer bg"><img src="images/main/layer_content01.jpg" /></div>
+					<div class="layer bird">
+						<div class="img"><img src="images/main/layer_content01_01.png" class="animated floatsCenter" /></div>
+						<div class="draw"><img src="images/main/layer_content01_02.png" /></div>
+					</div>
+					<div class="feather">
+						<div class="layer ct01"><img src="images/main/layer_content01_03.png" class="animated swing infinite" /></div>
+						<div class="layer ct02"><img src="images/main/layer_content01_04.png" class="animated swing infinite" /></div>
+					</div>
+					<div class="layer induce">
+						<img src="images/main/layer_scroll01_01.png" width="180" height="48" />
+						<img src="images/main/layer_scroll01_02.png" width="50" height="20" class="animated floats" />
+					</div>
+				</div>
+			</section>
+			<!-- e: content -->
+			<!-- s: content -->
+			<section class="content_section content02">
+				<div class="inner">
+					<div class="line"></div>
+					<div class="layer bg"><img src="images/main/layer_content02.jpg" /></div>
+					<div class="layer wing">
+						<div class="img"><img src="images/main/layer_content02_01.png" class="animated floatsCenter" /></div>
+						<div class="draw"><img src="images/main/layer_content02_02.png" /></div>
+					</div>
+					<div class="layer induce">
+						<img src="images/main/layer_scroll02_02.png" width="50" height="30" class="animated floatsReverse" />
+						<img src="images/main/layer_scroll02_01.png" width="180" height="48" />
+					</div>
+				</div>
+			</section>
+			<!-- e: content -->
+		</div>
+
+	</section>
+	<!-- e: body -->
+
+</body>
+</html>
